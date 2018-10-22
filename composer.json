@@ -1,0 +1,34 @@
+{
+    "name": "meiko/lumen-cloud",
+    "description": "Provides meiko.cloud helpers for Lumen",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Juuso Piikkilä",
+            "email": "juuso@meiko.fi"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "firebase/php-jwt": "~5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.4",
+        "orchestra/testbench": "^3.7",
+        "laracasts/testdummy": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Meiko\\Lumen\\Cloud\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Meiko\\Lumen\\Cloud\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
