@@ -4,7 +4,7 @@ namespace Meiko\Lumen\Cloud\Auth;
 
 use Illuminate\Auth\GenericUser;
 use Illuminate\Auth\Authenticatable;
-use Laravel\Lumen\Auth\Authorizable;
+use Meiko\Lumen\Cloud\Auth\Traits\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
