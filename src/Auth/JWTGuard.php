@@ -35,7 +35,7 @@ class JWTGuard implements Guard
      */
     public function user()
     {
-        if ($this->validate()) {
+        if ($this->user || $this->validate()) {
             return $this->user;
         }
 
