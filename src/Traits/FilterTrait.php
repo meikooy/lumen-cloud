@@ -57,6 +57,11 @@ trait FilterTrait
             // convert field
             $field = snake_case($field);
 
+            // skip field if it is not in attributes
+            if (!in_array($field, $attributes)) {
+                continue;
+            }
+
             // decode ids
             if (($field == 'id' || substr($field, -3) == '_id') && !empty($value)) {
                 $value = $this->lighthouseDecodeRelayId($value);
