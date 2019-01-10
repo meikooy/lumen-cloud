@@ -54,6 +54,14 @@ trait FilterTrait
                 $operator = (isset($this->operators[$arr[1]])) ? $this->operators[$arr[1]] : '=';
             }
 
+            // use model method if it exists
+            $fieldMethod = 'get' . ucfirst($field) . 'FilterQuery';
+            if (method_exists($this, $fieldMethod)) {
+                $this->$fieldMethod($query, $operator, $value, $useAnd);
+
+                continue;
+            }
+
             // convert field
             $field = snake_case($field);
 
