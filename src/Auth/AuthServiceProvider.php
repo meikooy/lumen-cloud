@@ -11,9 +11,20 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([__DIR__.'/../../config/cloud.php' => config_path('cloud.php')], 'config');
+        $this->publishes([__DIR__.'/../../config/cloud.php' => getConfigPath('cloud.php')], 'config');
 
         $this->registerGuard();
+    }
+
+    /**
+     * Get the configuration path.
+     *
+     * @param  string $path
+     * @return string
+     */
+    function getConfigPath($path = '')
+    {
+        return $this->basePath() . '/config' . ($path ? '/' . $path : $path);
     }
 
     /**
