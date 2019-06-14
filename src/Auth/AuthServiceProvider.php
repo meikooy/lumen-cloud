@@ -24,7 +24,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     function getConfigPath($path = '')
     {
-        return $this->basePath() . '/config' . ($path ? '/' . $path : $path);
+        return $this->app->basePath() . '/config' . ($path ? '/' . $path : $path);
     }
 
     /**
