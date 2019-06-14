@@ -2,14 +2,8 @@
 
 namespace Meiko\Lumen\Cloud\Traits;
 
-use Nuwave\Lighthouse\Support\Traits\HandlesGlobalId;
-
 trait FilterTrait
 {
-    use HandlesGlobalId {
-        HandlesGlobalId::decodeRelayId as lighthouseDecodeRelayId;
-    }
-
     /**
      * Available operators
      *
@@ -26,6 +20,18 @@ trait FilterTrait
         'lt' => '<',
         'lte' => '<=',
     ];
+
+    /**
+     * Decode the global id.
+     *
+     * @param string $id
+     *
+     * @return array
+     */
+    protected function decodeGlobalId($id)
+    {
+        return explode(':', base64_decode($id));
+    }
 
     /**
      * Loop where arguments
@@ -72,7 +78,7 @@ trait FilterTrait
 
             // decode ids
             if (($field == 'id' || substr($field, -3) == '_id') && !empty($value)) {
-                $value = $this->lighthouseDecodeRelayId($value);
+                $value = $this->decodeGlobalId($value);
             }
 
             if (in_array($operator, ['=', '!=']) && $value === null) {
