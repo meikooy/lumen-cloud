@@ -30,7 +30,7 @@ trait FilterTrait
      */
     protected function decodeGlobalId($id)
     {
-        return explode(':', base64_decode($id));
+        return explode(':', base64_decode($id))[1];
     }
 
     /**
