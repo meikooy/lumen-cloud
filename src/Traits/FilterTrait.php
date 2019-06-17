@@ -71,8 +71,8 @@ trait FilterTrait
             // convert field
             $field = snake_case($field);
 
-            // skip field if it is not in attributes
-            if (!in_array($field, $attributes)) {
+            // skip field if it is not in attributes and is not an id field
+            if (!in_array($field, $attributes) && !($field == 'id' || substr($field, -3) == '_id')) {
                 continue;
             }
 
